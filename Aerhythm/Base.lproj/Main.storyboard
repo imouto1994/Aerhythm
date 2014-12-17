@@ -1,0 +1,1010 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BLV-kt-sAS">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Game Controller - Ingame-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController storyboardIdentifier="Ingame" title="Ingame" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="GameController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F39-ly-JeE"/>
+                        <viewControllerLayoutGuide type="bottom" id="oyX-eN-9JY"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LwY-oT-xPU" userLabel="Pause View">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YS7-oI-q4g">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfk-oE-bZv" userLabel="resumeButton">
+                                        <rect key="frame" x="251" y="300" width="267" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resumeButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="5hs-BK-nfy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8P-qq-CBG" userLabel="retryButton">
+                                        <rect key="frame" x="251" y="404" width="267" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="retryButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="mYF-ba-LR9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boL-Q2-7Xq" userLabel="songButton">
+                                        <rect key="frame" x="251" y="517" width="267" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="LE2-1v-IuT" kind="unwind" identifier="reselectSong" unwindAction="unwindToSelectSongScreen:" id="VS1-B4-kIK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hme-Dj-rhx" userLabel="menuButton">
+                                        <rect key="frame" x="251" y="626" width="267" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="LE2-1v-IuT" kind="unwind" unwindAction="unwindToMenuScreen:" id="zwB-5S-t9L"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TW5-fx-Dga" userLabel="Pause Button">
+                                <rect key="frame" x="669" y="925" width="99" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pauseButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ClX-Q1-p5y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3O-fD-fbP" userLabel="Special Button">
+                                <rect key="frame" x="0.0" y="924" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="specialButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="D7F-Te-ug3"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SuG-0W-cYZ" userLabel="Loading View">
+                                <rect key="frame" x="0.0" y="0.0" width="769" height="1026"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.052102159045680836" green="0.046843484840309015" blue="0.077646683673469385" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RhP-9t-NMJ"/>
+                    <connections>
+                        <outlet property="loadingView" destination="SuG-0W-cYZ" id="5ib-PA-bFp"/>
+                        <outlet property="menuButton" destination="hme-Dj-rhx" id="z9F-fB-lVG"/>
+                        <outlet property="pauseBackground" destination="YS7-oI-q4g" id="gCg-7e-NoF"/>
+                        <outlet property="pauseButton" destination="TW5-fx-Dga" id="Mni-3V-Y9C"/>
+                        <outlet property="pauseView" destination="LwY-oT-xPU" id="XEo-zu-SJp"/>
+                        <outlet property="resumeButton" destination="sfk-oE-bZv" id="5Oy-1i-bbL"/>
+                        <outlet property="retryButton" destination="U8P-qq-CBG" id="X7Z-h8-Tcy"/>
+                        <outlet property="songButton" destination="boL-Q2-7Xq" id="n5W-HA-XE6"/>
+                        <outlet property="specialButton" destination="X3O-fD-fbP" id="GOa-XM-s8h"/>
+                        <segue destination="YRZ-v1-CxJ" kind="custom" identifier="gameover" customClass="FadeSegue" id="WVp-O8-fLA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <exit id="LE2-1v-IuT" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2557" y="-61"/>
+        </scene>
+        <!--End Game Controller - EndGame-->
+        <scene sceneID="OPP-i9-7Bh">
+            <objects>
+                <viewController storyboardIdentifier="EndGame" title="EndGame" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YRZ-v1-CxJ" customClass="EndGameController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JTc-bt-fiy"/>
+                        <viewControllerLayoutGuide type="bottom" id="tBA-5V-EUR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BAu-6P-4JC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gt1-vc-jdY" userLabel="Facebook Button">
+                                <rect key="frame" x="550" y="915" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postScoreToFB:" destination="YRZ-v1-CxJ" eventType="touchUpInside" id="zfF-vn-6JU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkN-vi-6T9" userLabel="Twitter Button">
+                                <rect key="frame" x="658" y="915" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postScoreToTwitter:" destination="YRZ-v1-CxJ" eventType="touchUpInside" id="ejn-NE-ZsH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="253-Lo-k8p" userLabel="Retry Button">
+                                <rect key="frame" x="442" y="915" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="retryButtonTapped:" destination="YRZ-v1-CxJ" eventType="touchUpInside" id="QIx-Qe-dWq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aew-DI-Kum" userLabel="Menu Button">
+                                <rect key="frame" x="334" y="915" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="uA4-sH-gxC" kind="unwind" unwindAction="unwindToMenuScreen:" id="8XP-4J-ZUN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKR-VG-N9P" userLabel="Songs Button">
+                                <rect key="frame" x="226" y="915" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="uA4-sH-gxC" kind="unwind" unwindAction="unwindToSelectSongScreen:" id="CKp-rs-kSp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRb-8c-tgg" userLabel="Levels Button">
+                                <rect key="frame" x="118" y="915" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="uA4-sH-gxC" kind="unwind" unwindAction="unwindToSelectLevelScreen:" id="Zez-dq-0gQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Q9-2Y-Oe6" userLabel="Model Button">
+                                <rect key="frame" x="10" y="915" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="uA4-sH-gxC" kind="unwind" unwindAction="unwindToSelectModelScreen:" id="PEb-Fx-e2m"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="130" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="5Bx-co-zPJ">
+                                <rect key="frame" x="0.0" y="450" width="768" height="390"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWC-qA-Mdy" userLabel="Score Label">
+                                <rect key="frame" x="85" y="227" width="250" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mW-LQ-UPY" userLabel="Friend">
+                                <rect key="frame" x="370" y="368" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="friendButtonTapped:" destination="YRZ-v1-CxJ" eventType="touchUpInside" id="Ldd-Jy-wBK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCM-OT-55g" userLabel="Enemy">
+                                <rect key="frame" x="305" y="220" width="197" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.65304129464285721" blue="0.083236868062555688" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRp-h7-XvD" userLabel="Health">
+                                <rect key="frame" x="530" y="220" width="233" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
+                                <color key="textColor" red="0.79071667729591844" green="0.17245792557980347" blue="0.0081080236199539777" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLy-Vs-kyu" userLabel="Time">
+                                <rect key="frame" x="305" y="265" width="137" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5be-af-9sj" userLabel="Kill Boss">
+                                <rect key="frame" x="450" y="265" width="118" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBu-73-Eze" userLabel="No revival">
+                                <rect key="frame" x="586" y="265" width="162" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXk-EA-dxm" userLabel="Global">
+                                <rect key="frame" x="305" y="368" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="globalButtonTapped:" destination="YRZ-v1-CxJ" eventType="touchUpInside" id="ImT-o2-dRA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LTq-Zc-aCw"/>
+                    <connections>
+                        <outlet property="enemyLabel" destination="zCM-OT-55g" id="Sb0-pS-n4d"/>
+                        <outlet property="facebookButton" destination="Gt1-vc-jdY" id="ef0-hO-jiS"/>
+                        <outlet property="friendButton" destination="1mW-LQ-UPY" id="hdl-Pz-U9U"/>
+                        <outlet property="globalButton" destination="aXk-EA-dxm" id="GWZ-PK-bgT"/>
+                        <outlet property="healthLabel" destination="MRp-h7-XvD" id="Eb7-DK-aJt"/>
+                        <outlet property="highscoreTable" destination="5Bx-co-zPJ" id="8oP-yW-fy7"/>
+                        <outlet property="killBossLabel" destination="5be-af-9sj" id="YYI-Kn-PwJ"/>
+                        <outlet property="levelButton" destination="vRb-8c-tgg" id="Z8J-u2-O41"/>
+                        <outlet property="menuButton" destination="aew-DI-Kum" id="WpA-dg-We2"/>
+                        <outlet property="modelButton" destination="1Q9-2Y-Oe6" id="mo0-03-AIg"/>
+                        <outlet property="noRevivalLabel" destination="KBu-73-Eze" id="IUh-yY-23G"/>
+                        <outlet property="retryButton" destination="253-Lo-k8p" id="zfD-gS-qfs"/>
+                        <outlet property="scoreLabel" destination="oWC-qA-Mdy" id="gLU-2c-Zx9"/>
+                        <outlet property="songButton" destination="kKR-VG-N9P" id="EMM-1b-92f"/>
+                        <outlet property="timeLabel" destination="vLy-Vs-kyu" id="0Tl-gB-vBG"/>
+                        <outlet property="twitterButton" destination="pkN-vi-6T9" id="CFi-L3-Aja"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iWC-Bk-4EC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uA4-sH-gxC" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="985" y="1780"/>
+        </scene>
+        <!--Aerhythm Navigation Controller - Navigation-->
+        <scene sceneID="xAW-Di-60P">
+            <objects>
+                <navigationController storyboardIdentifier="Navigate" title="Navigation" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="BLV-kt-sAS" customClass="AerhythmNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dcX-uK-SmV">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aiU-Sf-hs0" kind="relationship" relationship="rootViewController" id="FZt-m7-Cgd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2O9-yz-eEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2140" y="-166"/>
+        </scene>
+        <!--Menu Controller - Menu-->
+        <scene sceneID="Uc2-U3-CL3">
+            <objects>
+                <viewController storyboardIdentifier="Menu" title="Menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aiU-Sf-hs0" customClass="MenuController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pcf-fz-Cno"/>
+                        <viewControllerLayoutGuide type="bottom" id="FN8-eE-a6V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rdo-3m-Xue">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-aK-Vy8" userLabel="Start Button">
+                                <rect key="frame" x="185" y="405" width="399" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Eb2-GV-leJ" kind="custom" customClass="FadeSegue" id="l69-q6-oEa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUT-V4-6sa" userLabel="Design Level Button">
+                                <rect key="frame" x="185" y="517" width="399" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="MOO-Jh-bh6" kind="custom" customClass="FadeSegue" id="NSq-nW-V4h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JoQ-pC-ba8" userLabel="Upgrade Button">
+                                <rect key="frame" x="185" y="637" width="399" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XLZ-DF-8Nd" kind="custom" customClass="FadeSegue" id="ybM-4A-LV7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkG-aj-Ev3" userLabel="Log In Button">
+                                <rect key="frame" x="185" y="757" width="399" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="socialButtonTouchHandler:" destination="aiU-Sf-hs0" eventType="touchUpInside" id="AKs-4n-Mr2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bni-De-vrg" userLabel="Mail Button">
+                                <rect key="frame" x="684" y="939" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mailButtonTapped:" destination="aiU-Sf-hs0" eventType="touchUpInside" id="tU3-14-lub"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbQ-yX-o9y" userLabel="Info Button">
+                                <rect key="frame" x="15" y="939" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Iy8-hx-Vol" kind="custom" customClass="FadeSegue" id="u19-5Q-Xev"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dP8-Ig-9mp"/>
+                    <connections>
+                        <outlet property="designLevelButton" destination="tUT-V4-6sa" id="RQL-ON-Vef"/>
+                        <outlet property="infoButton" destination="bbQ-yX-o9y" id="poD-DQ-PUI"/>
+                        <outlet property="loginButton" destination="lkG-aj-Ev3" id="e9r-3k-cyv"/>
+                        <outlet property="mailButton" destination="bni-De-vrg" id="VJo-vv-bsD"/>
+                        <outlet property="startButton" destination="60Z-aK-Vy8" id="W6n-8k-q1D"/>
+                        <outlet property="upgradeButton" destination="JoQ-pC-ba8" id="A4d-Le-TJf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sLQ-Vb-QMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1231" y="-213"/>
+        </scene>
+        <!--Info Controller-->
+        <scene sceneID="eW1-Ng-Tlb">
+            <objects>
+                <viewController storyboardIdentifier="InfoController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Iy8-hx-Vol" customClass="InfoController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WAH-tZ-eBJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="8aG-ek-cco"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Ez-1F-1e1">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMl-gJ-uSL" userLabel="Enemies Button">
+                                <rect key="frame" x="185" y="281" width="399" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="et1-D4-VKz" kind="custom" customClass="FadeSegue" id="Fgc-NH-bpn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqk-8F-fkR" userLabel="Bullets Button">
+                                <rect key="frame" x="185" y="487" width="399" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Ssm-VC-P0A" kind="custom" customClass="FadeSegue" id="zQ8-sa-xe7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEF-0c-Oof" userLabel="Back Button">
+                                <rect key="frame" x="15" y="939" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="TF2-EN-8UK" kind="unwind" unwindAction="unwindToMenuScreen:" id="2WZ-Zz-hlk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="dEF-0c-Oof" id="lwW-e2-LGM"/>
+                        <outlet property="bulletsButton" destination="uqk-8F-fkR" id="HYR-qK-aIc"/>
+                        <outlet property="enemiesButton" destination="CMl-gJ-uSL" id="4Sr-Tf-PkZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="imp-w9-AWn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TF2-EN-8UK" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1755" y="1791"/>
+        </scene>
+        <!--Design Level Controller - DesignLevel-->
+        <scene sceneID="BAi-hH-Gdx">
+            <objects>
+                <viewController storyboardIdentifier="DesignLevel" title="DesignLevel" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MOO-Jh-bh6" customClass="DesignLevelController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CP9-ik-9t1"/>
+                        <viewControllerLayoutGuide type="bottom" id="tJm-77-A5t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oKA-uB-50Q">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wMw-g6-CgV">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="874"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewLayout key="collectionViewLayout" id="WMH-rt-9N2" customClass="DesignLevelLayout"/>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="MOO-Jh-bh6" id="ZBA-A7-Nwe"/>
+                                    <outlet property="delegate" destination="MOO-Jh-bh6" id="reT-Uf-Nha"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NGA-YX-k91" userLabel="Select Panel">
+                                <rect key="frame" x="0.0" y="874" width="768" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jaM-6B-WZ1">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </view>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OL0-ep-Vip" userLabel="Controller Panel">
+                                <rect key="frame" x="0.0" y="949" width="768" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qC9-tF-bqw" userLabel="Back Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="B4N-xP-Fvs" kind="unwind" unwindAction="unwindToMenuScreen:" id="eiB-bq-ZnH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x83-ck-WYO" userLabel="Ok Button">
+                                        <rect key="frame" x="693" y="0.0" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="qC9-tF-bqw" id="Wfx-H2-bcD"/>
+                        <outlet property="cellsCollectionView" destination="wMw-g6-CgV" id="ron-To-yfE"/>
+                        <outlet property="cellsLayout" destination="WMH-rt-9N2" id="AuK-X2-D8E"/>
+                        <outlet property="controllerPanel" destination="OL0-ep-Vip" id="PaA-ad-sMu"/>
+                        <outlet property="saveButton" destination="x83-ck-WYO" id="4Ey-Qv-PpS"/>
+                        <outlet property="selectPanel" destination="NGA-YX-k91" id="u1I-iT-irl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyC-py-y8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="B4N-xP-Fvs" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-51" y="-1293"/>
+        </scene>
+        <!--Select Model Controller - Model-->
+        <scene sceneID="F20-fe-UUH">
+            <objects>
+                <viewController storyboardIdentifier="Model" title="Model" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Eb2-GV-leJ" customClass="SelectModelController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hfJ-hz-Kea"/>
+                        <viewControllerLayoutGuide type="bottom" id="v3A-Ya-JsK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Oh6-Kz-RUo">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YB-V1-4B3" userLabel="Up Button">
+                                <rect key="frame" x="680" y="380" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="upButtonPressed:" destination="Eb2-GV-leJ" eventType="touchUpInside" id="bG9-6h-Uhc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdX-oL-eGA" userLabel="Down Button">
+                                <rect key="frame" x="680" y="495" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downButtonPressed:" destination="Eb2-GV-leJ" eventType="touchUpInside" id="l8u-uj-OR7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvo-uK-orh" userLabel="Next Button">
+                                <rect key="frame" x="234" y="810" width="300" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gcI-tn-qCa" kind="custom" identifier="selectLevel" customClass="FadeSegue" id="1kd-4Y-Lqc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWg-FO-kxF" userLabel="back button">
+                                <rect key="frame" x="15" y="934" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="iwx-7o-krA" kind="unwind" unwindAction="unwindToMenuScreen:" id="7T7-Bf-nXq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gj-P1-Ehy" userLabel="home button">
+                                <rect key="frame" x="673" y="934" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="iwx-7o-krA" kind="unwind" unwindAction="unwindToMenuScreen:" id="bXJ-kZ-dvI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="dWg-FO-kxF" id="cDM-gl-9lt"/>
+                        <outlet property="downButton" destination="TdX-oL-eGA" id="sus-NE-dYh"/>
+                        <outlet property="homeButton" destination="8gj-P1-Ehy" id="MY4-zZ-SNb"/>
+                        <outlet property="nextButton" destination="gvo-uK-orh" id="bLy-no-6Z7"/>
+                        <outlet property="upButton" destination="5YB-V1-4B3" id="zs8-P9-Ooi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k3H-z0-ugN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iwx-7o-krA" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-59" y="-108"/>
+        </scene>
+        <!--Enemies Info Controller - EnemiesController-->
+        <scene sceneID="3sp-cx-8YF">
+            <objects>
+                <viewController storyboardIdentifier="EnemiesInfoController" title="EnemiesController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="et1-D4-VKz" customClass="EnemiesInfoController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EHl-6s-0gW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tjn-Fe-f5A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sJJ-xn-khc">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKE-ci-Iz6" userLabel="Back Button">
+                                <rect key="frame" x="15" y="939" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bWc-C7-sMJ" kind="unwind" unwindAction="unwindToInfoScreen:" id="Tfi-lV-2DG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMC-ft-fXy" userLabel="Up Button">
+                                <rect key="frame" x="690" y="199" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="upButtonPressed:" destination="et1-D4-VKz" eventType="touchUpInside" id="kH5-hv-QI6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsQ-on-CmK" userLabel="Down Button">
+                                <rect key="frame" x="691" y="636" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downButtonPressed:" destination="et1-D4-VKz" eventType="touchUpInside" id="lzw-vO-VS9"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="530" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="vNJ-pB-Z8L">
+                                <rect key="frame" x="0.0" y="195" width="768" height="520"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="XKE-ci-Iz6" id="luN-4m-HHG"/>
+                        <outlet property="downButton" destination="IsQ-on-CmK" id="vI7-VS-Vwx"/>
+                        <outlet property="infoTable" destination="vNJ-pB-Z8L" id="32s-QB-Bvx"/>
+                        <outlet property="upButton" destination="yMC-ft-fXy" id="k7s-pH-Nqt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z9M-tG-ruY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bWc-C7-sMJ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-750" y="1455"/>
+        </scene>
+        <!--Bullets Info Controller-->
+        <scene sceneID="b2w-5e-au3">
+            <objects>
+                <viewController storyboardIdentifier="BulletsInfoController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ssm-VC-P0A" customClass="BulletsInfoController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hTk-Rl-EBb"/>
+                        <viewControllerLayoutGuide type="bottom" id="fkg-HQ-g1u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="saw-kd-wPn">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mfn-Yv-Pau" userLabel="Back Button">
+                                <rect key="frame" x="15" y="939" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Hm6-7P-H0a" kind="unwind" unwindAction="unwindToInfoScreen:" id="dDr-25-jST"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPu-tN-Ejd" userLabel="Down Button">
+                                <rect key="frame" x="691" y="636" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downButtonPressed:" destination="Ssm-VC-P0A" eventType="touchUpInside" id="RW2-p6-FwM"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="530" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="fnr-9E-cvl">
+                                <rect key="frame" x="0.0" y="195" width="768" height="520"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEw-LT-vcu" userLabel="Up Button">
+                                <rect key="frame" x="690" y="199" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="upButtonPressed:" destination="Ssm-VC-P0A" eventType="touchUpInside" id="mPg-pt-NQ2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="Mfn-Yv-Pau" id="oGb-IL-7D1"/>
+                        <outlet property="downButton" destination="dPu-tN-Ejd" id="6yV-ye-X6F"/>
+                        <outlet property="infoTable" destination="fnr-9E-cvl" id="vqm-dS-Sm7"/>
+                        <outlet property="upButton" destination="SEw-LT-vcu" id="5VD-SV-HME"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fJJ-Zf-bjY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Hm6-7P-H0a" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-750" y="2603"/>
+        </scene>
+        <!--Upgrade Controller - DesignLevel-->
+        <scene sceneID="LCY-vU-WcF">
+            <objects>
+                <viewController storyboardIdentifier="UpgradeController" title="DesignLevel" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XLZ-DF-8Nd" customClass="UpgradeController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dDo-qJ-bcw"/>
+                        <viewControllerLayoutGuide type="bottom" id="vIZ-fx-xzY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PLB-0Y-bpd">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="130" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="aU0-at-6BI">
+                                <rect key="frame" x="-5" y="200" width="768" height="520"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h5-dS-gEb" userLabel="Back Buttn">
+                                <rect key="frame" x="15" y="934" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dZs-nA-xNz" kind="unwind" identifier="backToMenu" unwindAction="unwindToMenuScreen:" id="pfN-NN-jxa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcV-LX-puD">
+                                <rect key="frame" x="652" y="964" width="116" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="4h5-dS-gEb" id="kiT-bk-MGU"/>
+                        <outlet property="scoreLabel" destination="kcV-LX-puD" id="IlH-2d-aNS"/>
+                        <outlet property="upgradeTable" destination="aU0-at-6BI" id="Gcg-bB-edS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cv5-2A-BQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dZs-nA-xNz" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-151" y="965"/>
+        </scene>
+        <!--Select Level Controller - Level-->
+        <scene sceneID="nxE-si-diu">
+            <objects>
+                <viewController storyboardIdentifier="Level" title="Level" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gcI-tn-qCa" customClass="SelectLevelController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ays-Qs-bfY"/>
+                        <viewControllerLayoutGuide type="bottom" id="vxX-Xj-7fI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mTO-DY-1iv">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNH-ZA-EPj" userLabel="Up Button">
+                                <rect key="frame" x="680" y="380" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="upButtonPressed:" destination="gcI-tn-qCa" eventType="touchUpInside" id="lOK-1h-Eda"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmV-hz-fn0" userLabel="Down Button">
+                                <rect key="frame" x="680" y="495" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downButtonPressed:" destination="gcI-tn-qCa" eventType="touchUpInside" id="1JS-wk-fAi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bu-Eo-FaV" userLabel="Next Button">
+                                <rect key="frame" x="234" y="810" width="300" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="HQa-uS-P9k" kind="custom" identifier="selectSong" customClass="FadeSegue" id="4FZ-to-LI9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X06-7G-kqc" userLabel="back button">
+                                <rect key="frame" x="15" y="934" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="p5U-Dk-JEs" kind="unwind" unwindAction="unwindToSelectModelScreen:" id="5N5-FT-nsh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbb-ZE-gfG" userLabel="home button">
+                                <rect key="frame" x="673" y="934" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="p5U-Dk-JEs" kind="unwind" unwindAction="unwindToMenuScreen:" id="4Rj-zo-qgm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6J-o1-TBd" userLabel="Reject button">
+                                <rect key="frame" x="725" y="460" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rejectButtonPressed:" destination="gcI-tn-qCa" eventType="touchUpInside" id="HXI-Ch-uCM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wM7-AK-8yO" userLabel="Personal">
+                                <rect key="frame" x="680" y="290" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="customListButtonPressed:" destination="gcI-tn-qCa" eventType="touchUpInside" id="73Q-pf-9eY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1wk-uA-oJK"/>
+                    <connections>
+                        <outlet property="backButton" destination="X06-7G-kqc" id="B7h-yk-a85"/>
+                        <outlet property="chooseLevelButton" destination="7Bu-Eo-FaV" id="BCX-fL-OjM"/>
+                        <outlet property="customListButton" destination="wM7-AK-8yO" id="EOC-c0-5O6"/>
+                        <outlet property="downButton" destination="VmV-hz-fn0" id="Ac9-t8-Pky"/>
+                        <outlet property="homeButton" destination="zbb-ZE-gfG" id="rw1-64-4bj"/>
+                        <outlet property="rejectButton" destination="s6J-o1-TBd" id="v5d-g5-Vex"/>
+                        <outlet property="upButton" destination="xNH-ZA-EPj" id="q3f-7L-Qe7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WCr-MJ-Mlh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="p5U-Dk-JEs" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="837" y="-54"/>
+        </scene>
+        <!--Select Song Controller-->
+        <scene sceneID="3V6-AG-pSd">
+            <objects>
+                <viewController storyboardIdentifier="Song" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HQa-uS-P9k" customClass="SelectSongController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vnV-FT-7rZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Sj-s1-Xbt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oTC-KL-WXr">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6OM-ee-Uop">
+                                <rect key="frame" x="705" y="450" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectButtonTapped:" destination="HQa-uS-P9k" eventType="touchUpInside" id="qbM-0w-3QJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWq-be-eFt" userLabel="Start Button">
+                                <rect key="frame" x="235" y="810" width="299" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="push" identifier="playGame" customClass="FadeSegue" id="J11-38-F1n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOM-WR-rXX" userLabel="back button">
+                                <rect key="frame" x="15" y="934" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6mE-Ce-bPA" kind="unwind" unwindAction="unwindToSelectLevelScreen:" id="FDr-Fh-QH7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2r-nf-VMe" userLabel="home button">
+                                <rect key="frame" x="673" y="934" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6mE-Ce-bPA" kind="unwind" unwindAction="unwindToMenuScreen:" id="RoJ-89-4q5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X5-up-c3x" userLabel="Personal">
+                                <rect key="frame" x="680" y="290" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="personalListButtonTapped:" destination="HQa-uS-P9k" eventType="touchUpInside" id="NmY-xb-3TJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwf-lo-DIh" userLabel="Up Button">
+                                <rect key="frame" x="680" y="377" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="upButtonTapped:" destination="HQa-uS-P9k" eventType="touchUpInside" id="qys-cc-4kI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azd-AE-Hml" userLabel="Down Button">
+                                <rect key="frame" x="680" y="495" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downButtonTapped:" destination="HQa-uS-P9k" eventType="touchUpInside" id="5ua-Ed-Ugr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZ3-LL-Lqi" userLabel="Reject button">
+                                <rect key="frame" x="725" y="460" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rejectButtonTapped:" destination="HQa-uS-P9k" eventType="touchUpInside" id="Wj6-Vw-Q0J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vic-7Y-x8A"/>
+                    <connections>
+                        <outlet property="backButton" destination="EOM-WR-rXX" id="IXp-9Y-kdy"/>
+                        <outlet property="downButton" destination="azd-AE-Hml" id="b7R-PR-Fv7"/>
+                        <outlet property="homeButton" destination="v2r-nf-VMe" id="0OA-nS-jI8"/>
+                        <outlet property="listButton" destination="9X5-up-c3x" id="AVt-2G-2oc"/>
+                        <outlet property="rejectButton" destination="aZ3-LL-Lqi" id="Z3Q-Bc-QQs"/>
+                        <outlet property="selectButton" destination="6OM-ee-Uop" id="QQI-Dd-lLt"/>
+                        <outlet property="startButton" destination="MWq-be-eFt" id="kpG-wh-pOl"/>
+                        <outlet property="upButton" destination="zwf-lo-DIh" id="vTX-c9-NSh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xS4-2i-cky" sceneMemberID="firstResponder"/>
+                <exit id="6mE-Ce-bPA" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1695" y="-25"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <nil key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
